@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Filament\Resources\EatureSectionResource\Pages;
+
+use App\Filament\Resources\EatureSectionResource;
+use Filament\Actions;
+use Filament\Resources\Pages\ListRecords;
+
+class ListEatureSections extends ListRecords
+{
+    protected static string $resource = EatureSectionResource::class;
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            Actions\CreateAction::make(),
+        ];
+    }
+}
