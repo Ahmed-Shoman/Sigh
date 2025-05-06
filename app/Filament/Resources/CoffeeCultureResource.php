@@ -13,7 +13,7 @@ class CoffeeCultureResource extends Resource
 {
     protected static ?string $model = CoffeeCulture::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-cup';
+    protected static ?string $navigationIcon = 'heroicon-o-microphone';
 
     public static function form(Form $form): Form
     {

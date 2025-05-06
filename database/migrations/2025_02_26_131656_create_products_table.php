@@ -20,6 +20,7 @@ return new class extends Migration
             $table->float('price');
             $table->longText('tages');
             $table->string('rate');
+            $table->boolean('is_special')->default(false);
         });
     }
 

@@ -31,13 +31,13 @@ class ProductResource extends Resource
     {
         return __('admin.products');
     }
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\Section::make(__('admin.product_details'))
                     ->schema([
-
                         Forms\Components\FileUpload::make('image')
                             ->label(__('admin.image'))
                             ->directory('uploads/images')
@@ -60,10 +60,15 @@ class ProductResource extends Resource
                             ->label(__('admin.product_tags'))
                             ->required()
                             ->columnSpanFull(),
+
                         Forms\Components\TextInput::make('rate')
                             ->label(__('admin.product_rate'))
                             ->required()
                             ->maxLength(255),
+
+                        Forms\Components\Toggle::make('is_special')
+                            ->label(__('Special Product'))
+                            ->default(false),
                     ])
                     ->columns(2),
             ]);
@@ -84,16 +89,14 @@ class ProductResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                    
-                    Tables\Columns\ImageColumn::make('image')
+
+                Tables\Columns\ImageColumn::make('image')
                     ->label(__('admin.image'))
                     ->searchable(),
 
-
-                 Tables\Columns\TextColumn::make('name')
+                Tables\Columns\TextColumn::make('name')
                     ->label(__('admin.name'))
                     ->searchable(),
-
 
                 Tables\Columns\TextColumn::make('price')
                     ->label(__('admin.product_price'))
@@ -102,6 +105,10 @@ class ProductResource extends Resource
                 Tables\Columns\TextColumn::make('rate')
                     ->label(__('admin.product_rate'))
                     ->searchable(),
+
+                Tables\Columns\ToggleColumn::make('is_special')
+                    ->label(__('Special Product'))
+                    ->sortable(),
             ])
             ->filters([])
             ->actions([

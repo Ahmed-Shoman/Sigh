@@ -28,4 +28,4 @@ Route::apiResource('feature-sections', FeatureSectionController::class);
 Route::apiResource('distinctive-products', DistinctiveProductController::class);
 Route::apiResource('coffee-cultures', CoffeeCultureController::class);
 });
-/////
+
